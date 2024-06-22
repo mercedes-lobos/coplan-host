@@ -1,9 +1,11 @@
 import { Component } from '@angular/core';
+import { NotificationComponent } from '../notification/notification.component';
+import { RouterLink } from '@angular/router';
 
 @Component({
   selector: 'app-sidebar',
   standalone: true,
-  imports: [],
+  imports: [NotificationComponent, RouterLink],
   templateUrl: './sidebar.component.html',
   styleUrl: './sidebar.component.scss',
 })
@@ -30,17 +32,6 @@ export class SidebarComponent {
     this.sun = document.querySelector('.sun') as HTMLElement;
   }
 
-  setDark(val: string) {
-    if (val === 'dark') {
-      document.documentElement.classList.add('dark');
-      this.moon.classList.add('hidden');
-      this.sun.classList.remove('hidden');
-    } else {
-      document.documentElement.classList.remove('dark');
-      this.sun.classList.add('hidden');
-      this.moon.classList.remove('hidden');
-    }
-  }
   openNav() {
     if (this.sidebar.classList.contains('-translate-x-48')) {
       // max sidebar
